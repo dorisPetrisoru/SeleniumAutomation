@@ -36,11 +36,11 @@ namespace UnitTesting.seleniumTests
             driver.FindElement(By.Id("username")).SendKeys(Constants.USERNAME);
             driver.FindElement(By.Id("continue-button")).Click();
             driver.FindElement(By.Id("password")).SendKeys(EncryptDecryptHelper.Decrypt(Constants.ENCODED_PASS));
-            wait.Until(d => d.FindElement(By.Id("signinbutton")).Displayed);
             driver.FindElement(By.Id("signinbutton")).Click();
             #endregion
 
             #region week 9, session 2
+            wait.Until(d => d.FindElement(By.ClassName("ibm-profile-link")).Displayed);
             driver.FindElement(By.ClassName("ibm-profile-link"));
             wait.Until(d => d.FindElement(By.XPath("//ul[@id = 'ibm-signin-minimenu-container']/li/a")).Displayed);
             var subMenusLinks = driver.FindElements(By.XPath("//ul[@id = 'ibm-signin-minimenu-container']/li/a"));
