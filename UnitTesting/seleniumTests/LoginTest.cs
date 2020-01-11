@@ -4,7 +4,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -41,8 +40,10 @@ namespace UnitTesting.seleniumTests
 
             #region week 9, session 2
             wait.Until(d => d.FindElement(By.ClassName("ibm-profile-link")).Displayed);
-            driver.FindElement(By.ClassName("ibm-profile-link"));
+            
+            driver.FindElement(By.ClassName("ibm-profile-link")).Click();
             wait.Until(d => d.FindElement(By.XPath("//ul[@id = 'ibm-signin-minimenu-container']/li/a")).Displayed);
+            
             var subMenusLinks = driver.FindElements(By.XPath("//ul[@id = 'ibm-signin-minimenu-container']/li/a"));
             List<string> menus = new List<string>();
 
@@ -57,6 +58,32 @@ namespace UnitTesting.seleniumTests
             };
 
             Assert.IsTrue(expectedMenus.SequenceEqual(menus));
+            #endregion
+
+            #region homework session 2
+
+            driver.FindElement(By.XPath("//li[@data-linktype = 'signout']/a")).Click();
+            wait.Until(d => d.FindElement(By.ClassName("ibm-profile-link")));
+            
+            driver.FindElement(By.ClassName("ibm-profile-link")).Click();
+            wait.Until(d => d.FindElement(By.XPath("//ul[@id = 'ibm-signin-minimenu-container']/li/a")).Displayed);
+            
+            var subLogoutLinks = driver.FindElements(By.XPath("//ul[@id = 'ibm-signin-minimenu-container']/li/a"));
+            
+            List<string> logoutMenus = new List<string>();
+
+            foreach (IWebElement logoutMenuLink in subLogoutLinks)
+            {
+                logoutMenus.Add(logoutMenuLink.Text);
+            }
+
+            List<string> expectedLogoutMenus = new List<string>
+            {
+                "My IBM", "Log in"
+            };
+
+            Assert.IsTrue(expectedLogoutMenus.SequenceEqual(logoutMenus));
+            Assert.IsTrue(driver.FindElement(By.CssSelector(".ibm-btn-pri.ibm-btn-white.sign-in-btn.ibm-ls-button-trigger")).Displayed);
             #endregion
         }
     }
