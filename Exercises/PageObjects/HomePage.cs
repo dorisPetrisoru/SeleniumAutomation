@@ -32,10 +32,10 @@ namespace Exercises.PageObjects
         public bool compareActualMenuList(IWebDriver driver, List<string> expectedMenus)
         {
             var wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));
+            wait.Until(d => profileLink.Displayed);
 
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(profileLink));
             profileLink.Click();
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(menuLinks.FirstOrDefault()));
+            wait.Until(d => menuLinks.All(element => element.Displayed));
 
             List<string> menus = new List<string>();
 

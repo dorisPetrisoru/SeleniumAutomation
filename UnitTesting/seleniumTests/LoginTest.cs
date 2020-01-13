@@ -34,8 +34,9 @@ namespace UnitTesting.seleniumTests
         public void TC01_NavigateToIbmSite()
         {
             driver.Navigate().GoToUrl("https://www.ibm.com/ro-en");
+            wait.Until(d => popUp.popUpFrame.Displayed);
             driver.SwitchTo().Frame(popUp.popUpFrame);
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(popUp.acceptCookiesButton));
+            wait.Until(d => popUp.acceptCookiesButton.Displayed);
             popUp.acceptCookiesButton.Click();
             driver.SwitchTo().DefaultContent();
         }
