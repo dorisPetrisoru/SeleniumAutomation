@@ -29,6 +29,16 @@ namespace Exercises.PageObjects
         [FindsBy(How = How.CssSelector, Using = ".ibm-btn-pri.ibm-btn-white.sign-in-btn.ibm-ls-button-trigger")]
         public IWebElement logInToMyIbmButton;
 
+        [FindsBy(How = How.LinkText, Using = "Marketplace")]
+        public IWebElement marketplaceMenu;
+
+        [FindsBy(How = How.LinkText, Using = "Automation (CZ)")]
+        public IWebElement automationSubMenu;
+
+        [FindsBy(How = How.LinkText, Using = "Workflow Automation (CZ)")]
+        public IWebElement workflowAutomationSubMenu;
+
+
         public bool compareActualMenuList(IWebDriver driver, List<string> expectedMenus)
         {
             var wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));

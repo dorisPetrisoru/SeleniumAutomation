@@ -67,8 +67,10 @@
     <Compile Include="Models\QuizModel.cs" />
     <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Models\TeacherModel.cs" />
+    <Compile Include="PageObjects\AutomationWorkFlowPage.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\LoginPage.cs" />
+    <Compile Include="PageObjects\PdfPage.cs" />
     <Compile Include="PageObjects\PopUpPage.cs" />
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\StudentServices.cs" />

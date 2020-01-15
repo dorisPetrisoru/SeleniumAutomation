@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="seleniumTests\LoginTest.cs" />
+    <Compile Include="seleniumTests\WorkflowAutomationTest.cs" />
     <Compile Include="unitTests\HomeworkWeek1.cs" />
     <Compile Include="unitTests\HomeworkWeek2.cs" />
     <Compile Include="unitTests\HomeworkWeek3.cs" />
