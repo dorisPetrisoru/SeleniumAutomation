@@ -5,19 +5,22 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Linq;
 
 namespace UnitTesting.seleniumTests
 {
     [TestClass]
-    public class WorkflowAutomationTest
+    public class WatsonAdvertisingTest
     {
         static IWebDriver driver;
         static HomePage home;
         static PopUpPage popUp;
         static LoginPage loginPage;
+        static WatsonAdvertisingPage watsonAdvertising;
+        static IbmAdvertisingAcceleratorPage ibmAdvertisingAccelerator;
+        static PowerOfPredictionPage powerOfPrediction;
+        static PowerOfPredictionDownloadPage powerOfPredictionDownload;
         static WebDriverWait wait;
-        static AutomationWorkFlowPage automationWorkflow;
-        static PdfPage pdfPage;
 
         [ClassInitialize]
         public static void Init(TestContext context)
@@ -31,8 +34,10 @@ namespace UnitTesting.seleniumTests
             home = new HomePage(driver);
             popUp = new PopUpPage(driver);
             loginPage = new LoginPage(driver);
-            automationWorkflow = new AutomationWorkFlowPage(driver);
-            pdfPage = new PdfPage(driver);
+            watsonAdvertising = new WatsonAdvertisingPage(driver);
+            ibmAdvertisingAccelerator = new IbmAdvertisingAcceleratorPage(driver);
+            powerOfPrediction = new PowerOfPredictionPage(driver);
+            powerOfPredictionDownload = new PowerOfPredictionDownloadPage(driver);
         }
 
         [TestMethod]
@@ -59,20 +64,34 @@ namespace UnitTesting.seleniumTests
         }
 
         [TestMethod]
-        public void TC03_NavigateToWorkflowAutomation()
+        public void TC03_NavigateToWatsonAdvertising()
         {
             home.marketplaceMenu.Click();
-            home.automationSubMenu.Click();
-            home.workflowAutomationSubMenu.Click();
-            Assert.AreEqual("Automation - Workflow - Czech Republic | IBM", driver.Title);
+            home.watsonSubMenu.Click();
+            home.watsoAdvertisingnSubMenu.Click();
+            Assert.AreEqual("IBM Watson Advertising | IBM", driver.Title);
         }
 
         [TestMethod]
-        public void TC04_DownloadPdfFromSlide()
+        public void TC04_ClickOnIntroducingAccelerator()
         {
-            WebUtil.ScrollToElement(driver, automationWorkflow.downloadPdfButton);
-            automationWorkflow.downloadPdfButton.Click();
-            Assert.IsTrue(pdfPage.pdfContent.Displayed);
+            WebUtil.ScrollToElement(driver, watsonAdvertising.introducingAcceleratorSlideButton);
+            watsonAdvertising.introducingAcceleratorSlideButton.Click();
+            wait.Until(d => d.WindowHandles.Count > 1);
+            driver.SwitchTo().Window(driver.WindowHandles.LastOrDefault());
+            Assert.AreEqual("IBM Advertising Accelerator with Watson | IBM", driver.Title);
+        }
+
+        [TestMethod]
+        public void TC05_DownloadEBook()
+        {
+            ibmAdvertisingAccelerator.downoadEBookButton.Click();
+            Assert.AreEqual("https://www.ibm.com/watson-advertising/thought-leadership/the-power-of-prediction", driver.Url);
+            WebUtil.ScrollToElement(driver, powerOfPrediction.downloadButton);
+            powerOfPrediction.downloadButton.Click();
+            wait.Until(d => d.WindowHandles.Count > 2);
+            driver.SwitchTo().Window(driver.WindowHandles.LastOrDefault());
+            Assert.IsTrue(wait.Until(d => powerOfPredictionDownload.downloadForm.Displayed));
         }
     }
 }

@@ -38,6 +38,17 @@ namespace Exercises.PageObjects
         [FindsBy(How = How.LinkText, Using = "Workflow Automation (CZ)")]
         public IWebElement workflowAutomationSubMenu;
 
+        [FindsBy(How = How.LinkText, Using = "Watson")]
+        public IWebElement watsonSubMenu;
+
+        [FindsBy(How = How.LinkText, Using = "Watson Advertising")]
+        public IWebElement watsoAdvertisingnSubMenu;
+
+        [FindsBy(How = How.LinkText, Using = "Internet of Things (CZ)")]
+        public IWebElement iotSubMenu;
+
+        [FindsBy(How = How.LinkText, Using = "Watson Internet of Things (CZ)")]
+        public IWebElement watsoIoTSubMenu;
 
         public bool compareActualMenuList(IWebDriver driver, List<string> expectedMenus)
         {

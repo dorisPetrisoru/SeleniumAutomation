@@ -5,19 +5,19 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Linq;
 
 namespace UnitTesting.seleniumTests
 {
     [TestClass]
-    public class WorkflowAutomationTest
+    public class WatsonIoTTest
     {
         static IWebDriver driver;
         static HomePage home;
         static PopUpPage popUp;
         static LoginPage loginPage;
+        static IoTPage ioTPage;
         static WebDriverWait wait;
-        static AutomationWorkFlowPage automationWorkflow;
-        static PdfPage pdfPage;
 
         [ClassInitialize]
         public static void Init(TestContext context)
@@ -31,8 +31,7 @@ namespace UnitTesting.seleniumTests
             home = new HomePage(driver);
             popUp = new PopUpPage(driver);
             loginPage = new LoginPage(driver);
-            automationWorkflow = new AutomationWorkFlowPage(driver);
-            pdfPage = new PdfPage(driver);
+            ioTPage = new IoTPage(driver);
         }
 
         [TestMethod]
@@ -59,20 +58,25 @@ namespace UnitTesting.seleniumTests
         }
 
         [TestMethod]
-        public void TC03_NavigateToWorkflowAutomation()
+        public void TC03_NavigateToWatsonIoT()
         {
             home.marketplaceMenu.Click();
-            home.automationSubMenu.Click();
-            home.workflowAutomationSubMenu.Click();
-            Assert.AreEqual("Automation - Workflow - Czech Republic | IBM", driver.Title);
+            home.iotSubMenu.Click();
+            home.watsoIoTSubMenu.Click();
+            Assert.IsTrue(wait.Until(d => ioTPage.watchVideoButton.Displayed));
         }
 
         [TestMethod]
-        public void TC04_DownloadPdfFromSlide()
+        public void TC04_WatchTheVideo()
         {
-            WebUtil.ScrollToElement(driver, automationWorkflow.downloadPdfButton);
-            automationWorkflow.downloadPdfButton.Click();
-            Assert.IsTrue(pdfPage.pdfContent.Displayed);
+            ioTPage.watchVideoButton.Click();
+            Assert.IsTrue(wait.Until(d => ioTPage.activeVideoFrame.Displayed));
+            var videoSrc = ioTPage.videoIframe.GetAttribute("src");
+
+            IWebDriver driver2 = new ChromeDriver();
+            driver2.Navigate().GoToUrl(videoSrc);
+            driver2.Quit();
+            ioTPage.closeVideoLink.Click();
         }
     }
 }
