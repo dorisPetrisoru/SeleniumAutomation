@@ -66,6 +66,7 @@
     <Compile Include="seleniumTests\WatsonAdvertisingTest.cs" />
     <Compile Include="seleniumTests\WatsonIoTTest.cs" />
     <Compile Include="seleniumTests\WorkflowAutomationTest.cs" />
+    <Compile Include="TestBase.cs" />
     <Compile Include="unitTests\HomeworkWeek1.cs" />
     <Compile Include="unitTests\HomeworkWeek2.cs" />
     <Compile Include="unitTests\HomeworkWeek3.cs" />
