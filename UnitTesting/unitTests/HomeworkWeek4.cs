@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
-namespace UnitTesting
+namespace Tests.UnitTests
 {
     [TestClass]
     public class HomeworkWeek4

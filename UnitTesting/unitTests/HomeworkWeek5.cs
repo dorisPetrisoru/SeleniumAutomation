@@ -3,7 +3,7 @@ using Exercises.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace UnitTesting
+namespace Tests.UnitTests
 {
     [TestClass]
     public class HomeworkWeek5

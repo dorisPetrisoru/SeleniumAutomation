@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace UnitTesting.seleniumTests
+namespace Tests.SeleniumTests
 {
     [TestClass]
     public class WatsonIoTTest : TestBase

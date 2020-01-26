@@ -8,8 +8,8 @@
     <ProjectGuid>{03F2AB9C-38CA-44BE-BD84-CB99F3B5D3FB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitTesting</RootNamespace>
-    <AssemblyName>UnitTesting</AssemblyName>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -62,20 +62,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="seleniumTests\LoginTest.cs" />
-    <Compile Include="seleniumTests\WatsonAdvertisingTest.cs" />
-    <Compile Include="seleniumTests\WatsonIoTTest.cs" />
-    <Compile Include="seleniumTests\WorkflowAutomationTest.cs" />
+    <Compile Include="SeleniumTests\IbmGlobalCareersTest.cs" />
+    <Compile Include="SeleniumTests\LoginTest.cs" />
+    <Compile Include="SeleniumTests\WatsonAdvertisingTest.cs" />
+    <Compile Include="SeleniumTests\WatsonIoTTest.cs" />
+    <Compile Include="SeleniumTests\WorkflowAutomationTest.cs" />
     <Compile Include="TestBase.cs" />
-    <Compile Include="unitTests\HomeworkWeek1.cs" />
-    <Compile Include="unitTests\HomeworkWeek2.cs" />
-    <Compile Include="unitTests\HomeworkWeek3.cs" />
-    <Compile Include="unitTests\HomeworkWeek4.cs" />
-    <Compile Include="unitTests\HomeworkWeek5.cs" />
-    <Compile Include="unitTests\HomeworkWeek6.cs" />
-    <Compile Include="unitTests\Week1.cs" />
+    <Compile Include="UnitTests\HomeworkWeek1.cs" />
+    <Compile Include="UnitTests\HomeworkWeek2.cs" />
+    <Compile Include="UnitTests\HomeworkWeek3.cs" />
+    <Compile Include="UnitTests\HomeworkWeek4.cs" />
+    <Compile Include="UnitTests\HomeworkWeek5.cs" />
+    <Compile Include="UnitTests\HomeworkWeek6.cs" />
+    <Compile Include="UnitTests\Week1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="unitTests\Week4.cs" />
+    <Compile Include="UnitTests\Week4.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Exercises\Exercises.csproj">

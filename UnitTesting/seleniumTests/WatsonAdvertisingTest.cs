@@ -3,7 +3,7 @@ using Exercises.PageObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
-namespace UnitTesting.seleniumTests
+namespace Tests.SeleniumTests
 {
     [TestClass]
     public class WatsonAdvertisingTest : TestBase

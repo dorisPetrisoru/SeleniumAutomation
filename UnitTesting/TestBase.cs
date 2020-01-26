@@ -5,7 +5,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 
-namespace UnitTesting
+namespace Tests
 {
     public class TestBase
     {
@@ -20,7 +20,7 @@ namespace UnitTesting
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
             driver.Manage().Window.Maximize();
-            wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));
+            wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
 
             home = new HomePage(driver);
             popUp = new PopUpPage(driver);

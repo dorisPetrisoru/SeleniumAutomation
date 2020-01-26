@@ -69,6 +69,7 @@
     <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Models\TeacherModel.cs" />
     <Compile Include="PageObjects\AutomationWorkFlowPage.cs" />
+    <Compile Include="PageObjects\EmploymentPage.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="PageObjects\IbmAdvertisingAcceleratorPage.cs" />
     <Compile Include="PageObjects\IoTPage.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="PageObjects\PopUpPage.cs" />
     <Compile Include="PageObjects\PowerOfPredictionDownloadPage.cs" />
     <Compile Include="PageObjects\PowerOfPredictionPage.cs" />
+    <Compile Include="PageObjects\SearchJobPage.cs" />
     <Compile Include="PageObjects\WatsonAdvertisingPage.cs" />
     <Compile Include="Services\CourseService.cs" />
     <Compile Include="Services\StudentServices.cs" />

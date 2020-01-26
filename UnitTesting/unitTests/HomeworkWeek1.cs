@@ -1,7 +1,7 @@
 ﻿using Exercises.SessionExcerises;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTesting
+namespace Tests.UnitTests
 {
     [TestClass]
     public class HomeworkWeek1

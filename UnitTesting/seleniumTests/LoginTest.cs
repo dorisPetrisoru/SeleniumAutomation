@@ -1,7 +1,7 @@
 ﻿using Exercises.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTesting.seleniumTests
+namespace Tests.SeleniumTests
 {
     [TestClass]
     public class LoginTest : TestBase

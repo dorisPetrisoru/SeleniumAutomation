@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace UnitTesting
+namespace Tests.UnitTests
 {
     [TestClass]
     public class Week4

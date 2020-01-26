@@ -50,6 +50,9 @@ namespace Exercises.PageObjects
         [FindsBy(How = How.LinkText, Using = "Watson Internet of Things (CZ)")]
         public IWebElement watsoIoTSubMenu;
 
+        [FindsBy(How = How.XPath, Using = "//span[contains(text(), 'Visit IBM Global Careers')]/ancestor::a[1]")]
+        public IWebElement ibmGlobalCareersLink;
+
         public bool compareActualMenuList(IWebDriver driver, List<string> expectedMenus)
         {
             var wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));

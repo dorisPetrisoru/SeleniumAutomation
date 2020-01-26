@@ -2,7 +2,7 @@
 using Exercises.PageObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnitTesting.seleniumTests
+namespace Tests.SeleniumTests
 {
     [TestClass]
     public class WorkflowAutomationTest : TestBase
